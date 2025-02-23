@@ -5,22 +5,52 @@
   font-family: sans-serif;
 }
 
+body {
+  display: flex; /* Added flexbox to body for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  margin: 0; /* Remove default margin */
+}
+
 #root {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90vw;
-  height: 90vh;
+  position: relative; /* Changed from absolute to relative for better responsiveness */
+  width: 90%; /* Changed from vw to % for better responsiveness */
+  height: auto; /* Changed from vh to auto for better responsiveness */
   padding: 10px;
+}
+
+@media (max-width: 768px) {
+  #root {
+    width: 95%; /* Adjust width for smaller screens */
+    height: auto; /* Allow height to adjust */
+  }
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: 5px; /* Reduce padding on smaller screens */
+  }
 }
 
 textarea {
   padding: 10px;
-  height: 40%;
+  height: 40vh; /* Changed from fixed height to vh for better responsiveness */
+}
+
+@media (max-width: 768px) {
+  textarea {
+    height: 30vh; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  textarea {
+    height: 25vh; /* Further adjust height for very small screens */
+  }
 }
 
 textarea:focus:focus-within {
@@ -47,13 +77,25 @@ textarea:focus:focus-within {
 }
 
 #output {
-  height: 40%;
+  height: 40vh; /* Changed from % to vh for better responsiveness */
   width: 100%;
   outline: 1px solid grey;
   padding: 10px;
   overflow-y: auto;
   word-wrap: break-word;
   font-size: small;
+}
+
+@media (max-width: 768px) {
+  #output {
+    height: 30vh; /* Adjust height for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #output {
+    height: 25vh; /* Further adjust height for very small screens */
+  }
 }
 
 #topBtns {
